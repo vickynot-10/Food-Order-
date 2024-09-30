@@ -1,0 +1,60 @@
+#dining-more-info-div {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 100%;
+}
+
+#dining-total-cuisines-div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    width: 100%;
+    gap: 10px;
+    padding: 10px;
+    justify-content: unset;
+}
+
+#dining-cuisine-separate-div {
+    width: auto;
+    text-align: center;
+    margin: 0 10px 0 0;
+    padding: 8px;
+    border-radius: 20px;
+    color: #119199;
+    border: 1px solid #119199;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(8px, 1vw, 16px);
+}
+
+@media screen and (min-width:320px) and (max-width:480px) {
+    #dining-more-info-div {
+        width: 100%;
+        justify-content: space-around;
+        grid-template-columns: auto auto auto;
+    }
+    #dining-total-cuisines-div {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    }
+    #dining-cuisine-separate-div {
+        text-align: unset;
+    }
+}
+
+@media screen and (min-width:481px) and (max-width:640px) {
+    #more-info-div {
+        width: 100%;
+        justify-content: space-around;
+        grid-template-columns: auto auto;
+    }
+}
+
+@media screen and (min-width:641px) and (max-width:960px) {
+    #more-info-div {
+        width: 100%;
+        justify-content: space-around;
+        grid-template-columns: auto auto;
+    }
+}

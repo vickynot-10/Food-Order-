@@ -1,0 +1,165 @@
+#footer-container {
+    width: 100%;
+    margin: auto;
+    min-height: 80vh;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FDF4F4;
+    flex-direction: column;
+}
+
+#footer-tomato-header {
+    color: black;
+    font-weight: bold;
+    font-size: clamp(12px, 3vw, 30px);
+    transform: skewX(-15deg);
+}
+
+#country-selec {
+    display: flex;
+    flex-direction: row;
+}
+
+#country-selection-btn,
+#language-selection-btn {
+    width: 90px;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    padding: 3px 7px;
+    border: 1px solid #696969;
+    margin-right: 5px;
+}
+
+#footer-title {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#footer-main {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+#footer-contents-header {
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
+    font-size: clamp(6px, 1vw, 30px);
+}
+
+#footer-arr-contents {
+    color: gray;
+    text-transform: capitalize;
+    font-size: clamp(8px, 1vw, 20px);
+}
+
+#social-links-div {
+    display: flex;
+    flex-direction: column;
+}
+
+#social-icons-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#ios-icon-div,
+#android-icon-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgb(88, 81, 81);
+    height: 40px;
+    width: 110px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    margin-top: 10px;
+}
+
+#ios-icon-div span,
+#android-icon-div span {
+    font-size: clamp(8px, 1vw, 18px);
+}
+
+#ios-download-text,
+#android-download-text {
+    display: flex;
+    flex-direction: column;
+}
+
+#ios-download-text p,
+#android-download-text p {
+    margin: unset;
+    font-size: clamp(8px, 1vw, 18px);
+    text-align: left;
+}
+
+#hr {
+    width: 80%;
+    height: 1px;
+}
+
+#footer-text {
+    width: 80%;
+    font-size: clamp(8px, 1vw, 26px);
+}
+
+@media screen and (min-width:320px) and (max-width:480px) {
+    #footer-container {
+        min-height: 50vh;
+    }
+    #ios-icon-div,
+    #android-icon-div {
+        height: 30px;
+        width: 90px;
+        border-radius: 6px;
+    }
+    #footer-title {
+        width: 95%;
+    }
+    #country-selection-btn,
+    #language-selection-btn {
+        width: 50px;
+        height: 25px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (min-width:481px) and (max-width:640px) {
+    #footer-container {
+        min-height: 60vh;
+    }
+    #ios-icon-div,
+    #android-icon-div {
+        height: 35px;
+        width: 95px;
+        border-radius: 10px;
+    }
+    #country-selection-btn,
+    #language-selection-btn {
+        width: 75px;
+        height: 25px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (min-width:641px) and (max-width:960px) {
+    #footer-container {
+        min-height: 70vh;
+    }
+}

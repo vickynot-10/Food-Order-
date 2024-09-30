@@ -1,0 +1,98 @@
+#overview-details {
+    width: 80%;
+    margin: auto;
+}
+
+#about-this-place-p {
+    color: #1C1C1C;
+    font-size: 24px;
+}
+
+#menu-text,
+#cuisines-text {
+    color: #1C1C1C;
+    font-size: 20px;
+}
+
+#overview-subtexts {
+    color: #4F4F4F;
+    font-size: clamp(12px, 2vw, 18px);
+}
+
+#total-cuisines-div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: unset;
+}
+
+#cuisine-separate-div {
+    width: auto;
+    margin: 0 10px 0 0;
+    padding: 8px;
+    border-radius: 20px;
+    color: #119199;
+    border: 1px solid #119199;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(8px, 1vw, 16px);
+}
+
+#more-info-div {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 40%;
+}
+
+#separate-info-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#separate-info-div p {
+    font-size: clamp(10px, 1vw, 16px);
+    color: #4F4F4F;
+    margin-left: 5px;
+}
+
+#separate-info-div div {
+    height: 20px;
+    width: 20px;
+    border: 1px solid #119199;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+@media screen and (min-width:320px) and (max-width:480px) {
+    #cuisine-separate-div {
+        margin: 0 5px 0 0;
+        border-radius: 15px;
+    }
+    #more-info-div {
+        width: 100%;
+        justify-content: space-around;
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media screen and (min-width:481px) and (max-width:640px) {
+    #more-info-div {
+        width: 100%;
+        justify-content: space-around;
+        grid-template-columns: auto auto;
+    }
+}
+
+@media screen and (min-width:641px) and (max-width:960px) {
+    #more-info-div {
+        width: 100%;
+        justify-content: space-around;
+        grid-template-columns: auto auto;
+    }
+}

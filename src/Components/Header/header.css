@@ -1,0 +1,337 @@
+#header-container {
+    background-color: white;
+    min-height: 15dvh;
+    max-height: 20dvh;
+    height: auto;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+#input-boxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: unset;
+}
+
+#search-input-container {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#search-items-div {
+    background-color: white;
+    z-index: 50;
+    min-height: 10vh;
+    width: auto;
+    height: auto;
+}
+
+#select-tag-div {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#location-icon {
+    position: absolute;
+    left: 90%;
+    top: 50%;
+    transform: translate(-90%, -50%);
+    color: #ff7400;
+}
+
+#search-input {
+    width: 300px;
+    height: 50px;
+    padding-left: 50px;
+    outline: none;
+    border: 1px solid black;
+    border-left: unset;
+}
+
+#search-glass {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    color: #ff7400;
+    transform: translate(-5%, -50%);
+}
+
+#tomato-header {
+    color: black;
+    font-weight: bold;
+    font-size: clamp(18px, 3vw, 30px);
+    transform: skewX(-15deg);
+}
+
+#login-p,
+#signup-p {
+    cursor: pointer;
+    color: #696969;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+#search-input-entire-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: unset;
+    align-items: center;
+}
+
+#search-item-input-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 0%;
+    left: 0%;
+}
+
+#search-items-container {
+    border: 1px solid #1C1C1C;
+    margin-top: 10px;
+    border-radius: 10px;
+    min-height: 50vh;
+    max-height: 80vh;
+    overflow-y: auto;
+    background-color: white;
+    z-index: 999;
+    height: auto;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    scroll-behavior: smooth;
+}
+
+#search-items-container::-webkit-scrollbar {
+    display: none;
+}
+
+#username-login {
+    color: #696969;
+    font-size: 18px;
+    font-family: sans-serif;
+    text-transform: capitalize;
+}
+
+#signout-p {
+    cursor: pointer;
+    color: #696969;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+#order-now-search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#hotel-ratings-search-div {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background-color: #267E3E;
+    height: 20px;
+    width: 40px;
+    border-radius: 4px;
+}
+
+#hotel-search-ratings {
+    color: rgba(255, 255, 255, 1);
+    margin: auto 1px;
+    font-size: 13px;
+    font-family: Helvetica, sans-serif;
+}
+
+#order-now-search button {
+    background-color: unset;
+    border: unset;
+    color: #ff7400;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#login-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 20%;
+}
+
+#search-error-div {
+    width: 200px;
+    height: 100%;
+}
+
+#login-input-box,
+#register-name-input {
+    width: 300px;
+    padding: 0 30px 0 30px;
+    height: 50px;
+}
+
+#register-mail-input {
+    width: 300px;
+    padding: 0 30px 0 30px;
+    height: 50px;
+    margin-top: 15px;
+}
+
+#password-login-box,
+#register-password-input {
+    width: 300px;
+    padding: 0 30px 0 30px;
+    height: 50px;
+    margin: 15px 0;
+}
+
+@media screen and (min-width:320px) and (max-width:480px) {
+    #login-input-box,
+    #register-name-input {
+        width: 200px;
+        padding: 0 30px 0 30px;
+        height: 50px;
+    }
+    #register-mail-input {
+        width: 200px;
+        padding: 0 30px 0 30px;
+        height: 50px;
+        margin-top: 15px;
+    }
+    #password-login-box,
+    #register-password-input {
+        width: 200px;
+        padding: 0 30px 0 30px;
+        height: 50px;
+        margin: 15px 0;
+    }
+    #header-container {
+        min-height: 25vh;
+        max-height: 50vh;
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "header buttons" "input input";
+        width: 90%;
+        margin: auto;
+    }
+    #tomato-header {
+        grid-area: header;
+    }
+    #login-controls {
+        grid-area: buttons;
+        width: 100%;
+        align-items: center;
+    }
+    #input-boxes {
+        grid-area: input;
+        width: 100%;
+    }
+    #search-input {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width:481px) and (max-width:640px) {
+    #login-input-box,
+    #register-name-input {
+        width: 200px;
+        padding: 0 30px 0 30px;
+        height: 50px;
+    }
+    #register-mail-input {
+        width: 200px;
+        padding: 0 30px 0 30px;
+        height: 50px;
+        margin-top: 15px;
+    }
+    #password-login-box,
+    #register-password-input {
+        width: 200px;
+        padding: 0 30px 0 30px;
+        height: 50px;
+        margin: 15px 0;
+    }
+    #header-container {
+        min-height: 25vh;
+        max-height: 50vh;
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "header buttons" "input input";
+        align-items: center;
+        width: 90%;
+        margin: auto;
+    }
+    #tomato-header {
+        grid-area: header;
+    }
+    #login-controls {
+        grid-area: buttons;
+        width: 100%;
+        align-items: center;
+    }
+    #input-boxes {
+        grid-area: input;
+        justify-content: center;
+        width: 90%;
+    }
+    #search-input {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:641px) and (max-width:960px) {
+    #login-input-box,
+    #register-name-input {
+        width: 200px;
+        padding: 0 30px 0 30px;
+        height: 50px;
+    }
+    #register-mail-input {
+        width: 200px;
+        padding: 0 30px 0 30px;
+        height: 50px;
+        margin-top: 15px;
+    }
+    #password-login-box,
+    #register-password-input {
+        width: 200px;
+        padding: 0 30px 0 30px;
+        height: 50px;
+        margin: 15px 0;
+    }
+    #header-container {
+        min-height: 25vh;
+        max-height: 50vh;
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "header buttons" "input input";
+        align-items: center;
+        width: 90%;
+        margin: auto;
+    }
+    #tomato-header {
+        grid-area: header;
+    }
+    #login-controls {
+        grid-area: buttons;
+        width: 100%;
+        align-items: center;
+    }
+    #input-boxes {
+        grid-area: input;
+        justify-content: center;
+        width: 90%;
+    }
+}

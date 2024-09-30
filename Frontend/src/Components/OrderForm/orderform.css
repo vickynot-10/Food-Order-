@@ -1,0 +1,16 @@
+#total-cost-snack {
+    font-size: clamp(8px, 1vw, 15px);
+}
+
+#place-order-text {
+    font-size: clamp(10px, 2vw, 15px);
+    cursor: pointer;
+}
+
+#order-inputs {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
