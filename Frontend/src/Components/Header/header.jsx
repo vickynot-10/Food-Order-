@@ -319,7 +319,6 @@ export function Header(){
                 setisLoggedIn(true);
                 setuserName(res.data.data.name)
                 setUserid(res.data.data._id);
-                window.location.href='/delivery'
                 setopen(false)
                 timerAlert();
             }
