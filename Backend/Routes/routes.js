@@ -19,7 +19,7 @@ import { verifyJWTtoken } from '../middlewares/jwtAuthMiddleware.js';
 const app = express()
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'https://food-order-frontend-jhzp.onrender.com/',
     credentials: true
 }))
 app.use(cookieParser())

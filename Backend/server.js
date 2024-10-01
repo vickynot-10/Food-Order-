@@ -9,7 +9,7 @@ import { configDotenv } from 'dotenv';
 configDotenv()
 app.use(cors({
 
-    origin: 'http://localhost:3000',
+    origin: 'https://food-order-frontend-jhzp.onrender.com',
     credentials: true
 }))
 app.use(express.json());
