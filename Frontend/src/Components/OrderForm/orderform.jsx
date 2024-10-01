@@ -67,7 +67,7 @@ export function OrderForm(){
             if(userdata.address.length <=5 || !userdata.address ){
                 throw new Error("Please Enter your address with atleast 5 characters")
             }
-        const res = await axios.post('http://localhost:4040/placeOrder',{
+        const res = await axios.post(`${process.env.REACT_APP_URL}/placeOrder`,{
             "userId" : userIDAuth,
             "foodDetails":cartItems
         },{

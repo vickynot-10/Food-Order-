@@ -30,7 +30,7 @@ let hotelNameLowercase = hotelPage.toLocaleLowerCase()
   useEffect(()=>{
     async function fetchData(){
       try{
-        let res = await axios.get(`http://localhost:4040/delivery/hotel/${hotelNameLowercase}`);
+        let res = await axios.get(`${process.env.REACT_APP_URL}/delivery/hotel/${hotelNameLowercase}`);
         if(!res || !res.data ){
           throw new Error('Network response was not ok')
        }

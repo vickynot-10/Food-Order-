@@ -26,7 +26,7 @@ export function DiningHotelPage(){
     useEffect(()=>{
         async function fetchData(){
         try{
-            const res= await axios.get(`http://localhost:4040/diningout/${hotelname}`)
+            const res= await axios.get(`${process.env.REACT_APP_URL}/diningout/${hotelname}`)
             if(!res || !res.data ){
                 throw new Error("Response was not ok");
             }

@@ -12,7 +12,7 @@ export const AuthContextProvider = ({children})=>{
     useEffect(()=>{
         async function fetchData() {
             try{
-                const res =await axios.get('http://localhost:4040/user/me',{
+                const res =await axios.get(`${process.env.REACT_APP_URL}/user/me`,{
                     withCredentials:true
                 } );
                 if(!res || !res.data ){

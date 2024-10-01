@@ -20,7 +20,7 @@ export function OrderOnline({ hotelName }) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await axios.get(`http://localhost:4040/${hotelName}/foods`);
+        const res = await axios.get(`${process.env.REACT_APP_URL}/${hotelName}/foods`);
         if (!res || !res.data ) {
           throw new Error("Network response was not ok");
         }

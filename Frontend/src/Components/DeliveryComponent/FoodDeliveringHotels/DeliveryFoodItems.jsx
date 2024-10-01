@@ -29,7 +29,7 @@ export function FoodDeliversItems(){
     useEffect(()=>{
         async function fetchdata(){
             try{
-            let res = await axios.get(`http://localhost:4040/delivery/food/${foodName}`)
+            let res = await axios.get(`${process.env.REACT_APP_URL}/delivery/food/${foodName}`)
             if(!res || !res.data ){
                 throw new Error('Network response was not ok')
              }

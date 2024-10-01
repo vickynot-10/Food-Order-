@@ -11,6 +11,7 @@ import { OrderDisplay } from '../Controllers/ordersDisplay.js';
 import { DiningHotelDetails } from '../Controllers/diningHotelDetails.js';
 import { DiningHotelSeparatePage } from '../Controllers/HotelsDining.js';
 import { LoginAuthUser } from '../Controllers/LoginAuth.js';
+import { RedirectToHome } from '../Controllers/RedirectToHome.js';
 import cookieParser from 'cookie-parser';
 
 
@@ -26,7 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const routes = express.Router();
 
-
+routes.get('/',RedirectToHome);
 routes.get('/register', UserResgister)
 routes.post('/register2', UserRegisterAddress)
 routes.post('/login', userLogin)

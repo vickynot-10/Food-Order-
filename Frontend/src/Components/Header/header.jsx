@@ -136,7 +136,7 @@ export function Header(){
     }
     async function Logout(){
         try{
-            const res=await axios.post('http://localhost:4040/logout');
+            const res=await axios.post(`${process.env.REACT_APP_URL}/logout`);
             if(!res){
                 throw new Error("Error while logging out")
             }
@@ -171,7 +171,7 @@ export function Header(){
             if(!EmailExp.test(formDetails.mail)){
                 throw new Error("Invalid Mail , Add characters such as @");
             }
-            const res= await axios.get('http://localhost:4040/register',{
+            const res= await axios.get(`${process.env.REACT_APP_URL}/register`,{
                 params :{
                     "name" : formDetails.name
                 }
@@ -216,7 +216,7 @@ export function Header(){
             if( formDetails.password.length <= 0 || formDetails.password.length <= 8){
                 throw new Error("Password should more than 8 characters long")
             }
-            const res= await axios.post(`http://localhost:4040/register2/`,{
+            const res= await axios.post(`${process.env.REACT_APP_URL}/register2/`,{
                 "username" :formDetails.name ,
                 "mail" : formDetails.mail,
                 "mobile_no" : formDetails.mobile_no,
@@ -309,7 +309,7 @@ export function Header(){
             }if(loginForm.nameLogin.length <= 0 || loginForm.passwordLogin.length <= 0){
                 return setErrorData("Please Enter Details");
             }
-            const res= await axios.post('http://localhost:4040/login',loginForm ,{
+            const res= await axios.post(`${process.env.REACT_APP_URL}/login`,loginForm ,{
                 withCredentials : true
             });
             if(!res || !res.data){
@@ -379,7 +379,7 @@ export function Header(){
             setBlur(false)
         }
         try{
-        let res= await axios.get(`http://localhost:4040/foodSearch`,{
+        let res= await axios.get(`${process.env.REACT_APP_URL}/foodSearch`,{
             params:{
                 Searchfoodname : str
             }

@@ -33,7 +33,7 @@ export function Orders(){
     useEffect(()=>{
         async function fetchData(){
             try{
-                const res= await axios.get('http://localhost:3000/orders',{
+                const res= await axios.get(`${process.env.REACT_APP_URL}/orders`,{
                     withCredentials : true
             })
             if(!res || !res.data){

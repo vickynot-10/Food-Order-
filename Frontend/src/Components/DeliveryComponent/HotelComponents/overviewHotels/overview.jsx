@@ -14,7 +14,7 @@ export function OverviewSection( {hotelName} ) {
   useEffect(()=>{
     async function fetchData(){
       try{
-        let res = await axios.get(`http://localhost:4040/delivery/hotel/${hotelName}`);
+        let res = await axios.get(`${process.env.REACT_APP_URL}/delivery/hotel/${hotelName}`);
          if(!res || !res.data ){
           throw new Error('Network response was not ok')
          }
