@@ -30,7 +30,7 @@ const routes = express.Router();
 routes.get('/',RedirectToHome);
 routes.get('/register', UserResgister)
 routes.post('/register2', UserRegisterAddress)
-routes.post('/login',verifyJWTtoken, userLogin)
+routes.post('/login', userLogin)
 routes.get('/user/me', verifyJWTtoken, LoginAuthUser)
 routes.post('/placeOrder', OrderDetails)
 routes.get('/orders', verifyJWTtoken, OrderDisplay)
