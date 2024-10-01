@@ -424,8 +424,11 @@ export function Header(){
              <Dialog
                 onClose={OffLoginForm}
                 PaperProps={{
-                    style:{
-                        minWidth:'300px',minHeight:'400px',height:'auto',width:'auto'
+                    sx:{
+                        minWidth:'300px',minHeight:{
+                            xs:'350px' , md:'360px'
+                        },height:'auto',width:'auto',
+                        borderRadius:'16px'
                     }
                 }}
                 open={isOpen}
@@ -477,8 +480,8 @@ export function Header(){
                              </div>
                         { showAlert ? 
                     <Alert variant="filled" sx={{
-                        display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center',
-                        margin:'10px 0',height:'30px' ,width:'auto' ,fontSize:'10px' , borderRadius:'10px'
+                        display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center',textAlign:'center',
+                        margin:'10px 0',height:'30px' ,width:'80%' ,fontSize:'clamp(8px,1vw,12px)' , borderRadius:'10px'
                     }}  severity="error">
                         {errorData}
                         <IconButton onClick={Offalert}>
@@ -488,7 +491,7 @@ export function Header(){
                         </IconButton>
                     </Alert> : successalert ?
                     <Alert variant="filled" severity="success">
-                    This is a filled success Alert.
+                    Welcome
                   </Alert> : null
                         }
                             <input type='submit' style={{
@@ -503,13 +506,13 @@ export function Header(){
                         }}>
                             <p 
                             style={{
-                                color:'#4F4F4F'
+                                color:'#4F4F4F' , fontSize:'clamp(10px,1vw,16px)'
                             }}
                             >New to Tomato ?</p>
                             <button
                             style={{
                                 border:'unset',backgroundColor:'unset',cursor:'pointer',
-                                color:'#4F4F4F', fontSize:'15px'
+                                color:'#4F4F4F', fontSize:'clamp(10px,1vw,16px)'
                             }}
                             onClick={DisplaySignUpForm}
                             
@@ -522,8 +525,11 @@ export function Header(){
 
         <Dialog
                 PaperProps={{
-                    style:{
-                        minWidth:'300px', minHeight:'450px' ,height:'auto',width:'auto'
+                    sx:{
+                        minWidth:'300px', minHeight:{
+                            xs:'350px' , md:'360px'
+                        } ,height:'auto',width:'auto',
+                        borderRadius:'16px'
                     }
                 }}
                 
@@ -531,7 +537,7 @@ export function Header(){
                 onClose={OffSignUpForm}
                 >
                     <DialogTitle>
-                        <div style={{
+                        <div style={{ height:'100%',
                         display:'flex',flexDirection:'row',justifyContent:'space-between',alignItems:'center'
                         }}>
                             <p style={{
@@ -591,7 +597,7 @@ export function Header(){
                 showAlert ? 
             <Alert variant="filled" sx={{
                 display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center',
-                margin:'10px 0',height:'30px' ,width:'auto' ,fontSize:'10px' , borderRadius:'10px'
+                margin:'10px 0',height:'30px' ,width:'80%' ,fontSize:'clamp(8px,1vw,12px)' , borderRadius:'10px'
             }}  severity="error">
                 {errorData}
                 <IconButton onClick={Offalert}>
@@ -667,13 +673,13 @@ export function Header(){
                         }}>
                             <p 
                             style={{
-                                color:'#4F4F4F'
+                                color:'#4F4F4F',fontSize:'clamp(10px,2vw,16px)'
                             }}
                             >Already Have an Account ?</p>
                             <button
                             style={{
                                 border:'unset',backgroundColor:'unset',cursor:'pointer',
-                                color:'#4F4F4F', fontSize:'15px'
+                                color:'#4F4F4F',fontSize:'clamp(10px,2vw,16px)'
                             }}
                             onClick={DisplayLoginForm}
                             >Log In</button>
@@ -879,28 +885,34 @@ export function Header(){
                         </div>
                     </div>              
                 </div>
-
                 <div id='login-controls'>
                     {
                     isLoggedIn || isSignupLoggedin ? <>
-                        <p id='username-login' > {username} </p>
-                        <p id='signout-p' onClick={Logout} >Sign out</p>
+                        <button id='username-login' > {username} </button>
+                        <button id='signout-p' onClick={Logout} >Sign out</button>
                         </> : 
                     <>
-                <p id='login-p' onClick={DisplayLoginForm}>Log in</p>
-                <p id='signup-p' onClick={DisplaySignUpForm} >Sign up</p>
+                <button id='login-p' onClick={DisplayLoginForm}>Log in</button>
+                <button id='signup-p' onClick={DisplaySignUpForm} >Sign up</button>
                 </>
                 }
                 </div> 
                 {
                     locationerr.isTrue ? <>
                     <Snackbar 
+
                     open={locationerr.snackbar}
                     anchorOrigin={{
                         vertical:'center' , horizontal: 'center'
                     }}
                     autoHideDuration={3000}
-                    message={locationerr.data}
+                    message={
+                        <Typography sx={{
+                            fontSize:'8px'
+                        }} >
+                        {locationerr.data}
+                        </Typography>
+                    }
                     action={
                         <IconButton onClick={ ()=>{
                             setlocationerr(prev=>({

@@ -71,9 +71,12 @@
 
 #login-p,
 #signup-p {
+    border: unset;
+    background-color: unset;
     cursor: pointer;
+    margin: 0 5px;
     color: #696969;
-    font-size: 18px;
+    font-size: clamp(12px, 2vw, 16px);
     font-family: sans-serif;
 }
 
@@ -115,16 +118,20 @@
 
 #username-login {
     color: #696969;
-    font-size: 18px;
+    font-size: clamp(10px, 2vw, 18px);
     font-family: sans-serif;
     text-transform: capitalize;
+    border: unset;
+    background-color: unset;
 }
 
 #signout-p {
     cursor: pointer;
     color: #696969;
-    font-size: 18px;
+    font-size: clamp(10px, 2vw, 18px);
     font-family: sans-serif;
+    border: unset;
+    background-color: unset;
 }
 
 #order-now-search {
