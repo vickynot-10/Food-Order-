@@ -18,7 +18,7 @@ export const AuthContextProvider = ({children})=>{
                 if(!res || !res.data ){
                     throw new Error("Response was not ok");
                 }
-                if(res.data.isLoggedIn===true){
+                if(res.data.isLoggedInobj===true){
                     setisLoggedIn(true);
                     setuserName(res.data.userdata.name)
                     setuserIDAuth(res.data.userdata._id)

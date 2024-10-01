@@ -113,8 +113,8 @@ export function Orders(){
                     </Alert>
                      </div> : isLoggedIn ?
             
-    <div id="order-page-container-2" >
-        <div id="order-page-section" >
+        <div id="order-page-container-2" >
+            <div id="order-page-section" >
             {
                  DisplayArr.map((item,index) =>{
                    return <><div id="order-tab-row" key={index} >
