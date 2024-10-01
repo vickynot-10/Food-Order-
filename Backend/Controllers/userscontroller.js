@@ -9,7 +9,7 @@ import Cookies from 'js-cookie'
 const app = express()
 configDotenv()
 app.use(cors({
-    origin: 'https://food-order-frontend-jhzp.onrender.com/',
+    origin: 'https://food-order-frontend-jhzp.onrender.com',
     credentials: true
 }))
 app.use(express.urlencoded({ extended: true }))
