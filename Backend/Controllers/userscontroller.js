@@ -111,7 +111,7 @@ export const userLogin = async(req, res) => {
                 httpOnly: true,
                 maxAge: 2 * 60 * 60 * 1000,
                 sameSite: 'lax',
-                secure: false
+                secure: true
             })
             return res.status(200).json({
                 "name": userVar.name,
