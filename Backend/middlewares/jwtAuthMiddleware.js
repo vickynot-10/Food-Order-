@@ -8,7 +8,7 @@ export const verifyJWTtoken = (req, res, next) => {
 
     if (!token) {
         return res.status(400).json({
-            message: "Please Login",
+            message: "Please Login , Have token",
             isLoggedIn: false,
             userdata: null
         })
