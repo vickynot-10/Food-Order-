@@ -11,7 +11,7 @@ import { configDotenv } from 'dotenv';
 import { fileURLToPath } from 'url';
 configDotenv()
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: true,
     credentials: true
 }))
 const __filename=fileURLToPath(import.meta.url);

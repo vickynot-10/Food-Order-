@@ -9,7 +9,7 @@ import Cookies from 'js-cookie'
 const app = express()
 configDotenv()
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: true,
     credentials: true
 }))
 app.use(express.urlencoded({ extended: true }))
@@ -108,10 +108,10 @@ export const userLogin = async(req, res) => {
         if (passwordMatch) {
             let token = generateJWTtoken(userVar._id);
             res.cookie('token', token, {
-                httpOnly:false,
+                httpOnly:true,
                 maxAge: 2 * 60 * 60 * 1000,
                 sameSite: 'lax',
-                secure: false
+                secure: true
             })
             return res.status(200).json({
                 "name": userVar.name,
