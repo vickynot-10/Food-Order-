@@ -28,7 +28,7 @@ import FreshMenu from "../Assests/freshmenu.jpg";
 //Dining Out Icons
 import rooftop from '../Assests/DiningOut/rooftop.jpg'
 import panasian from '../Assests/DiningOut/panasian.jpg'
-import dateHotel from '../Assests/DiningOut/date.png'
+import dateHotel from '../Assests/DiningOut/date.jpeg'
 import luxury from '../Assests/DiningOut/luxury.jpg'
 import newlyopened from '../Assests/DiningOut/newlyopened.jpg'
 import octoberfest from '../Assests/DiningOut/octoberfest.jpg'

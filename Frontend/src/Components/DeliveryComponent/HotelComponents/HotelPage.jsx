@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { FoodShops } from "../../../Data/data";
+import { Suspense,lazy } from "react";
 import { useCity } from "../../../Contexts/citySelect";
 import { motion } from "framer-motion";
 import axios from "axios";
@@ -7,13 +8,15 @@ import "./hotelPage.css";
 import Directions from "@mui/icons-material/DirectionsOutlined";
 import BookmarkAdd from "@mui/icons-material/BookmarkAddOutlined";
 import Share from "@mui/icons-material/ShareOutlined";
-import { OverviewSection } from "./overviewHotels/overview";
 import { useState,useEffect } from "react";
-import { OrderOnline } from "./orderonlineFoods/orderOnline";
 import { useNav } from "../../../Contexts/context";
 import  Alert  from "@mui/material/Alert";
 import { CircularProgress } from '@mui/material';
-export function HotelPage() {
+
+const OrderOnlineComponent = lazy(()=>import('./orderonlineFoods/orderOnline'))
+const OverviewSectionComponent = lazy(()=>import('./overviewHotels/overview'))
+
+function HotelPage() {
   const {setActive} = useNav();
   setActive('delivery')
   const [isActiveOverview, setActiveOverview] = useState("overview");
@@ -21,11 +24,10 @@ export function HotelPage() {
   const { selectCity } = useCity();
   const HotelImgs = FoodShops[hotelPage];
   const [hoteldetails,setHotelDetails]= useState({})
-  const [err,seterr]=useState(null);
+  const [err,seterr]=useState('');
+  const [iserr,setiserr]=useState(false)
   const [isLoading,setLoading]=useState(true);
-  useEffect(()=>{
-    document.title=`${hotelPage}`;
-  },[])
+
 let hotelNameLowercase = hotelPage.toLocaleLowerCase()
   useEffect(()=>{
     async function fetchData(){
@@ -34,10 +36,13 @@ let hotelNameLowercase = hotelPage.toLocaleLowerCase()
         if(!res || !res.data ){
           throw new Error('Network response was not ok')
        }
+       if(res.status===200){
+        
       setHotelDetails(res.data);
-      seterr(null)
+       }
       }
       catch(e){    
+        setiserr(true)
         let errMsg = "Something error occur"
         if(e.response.data){
           errMsg = e.response.data
@@ -52,8 +57,40 @@ let hotelNameLowercase = hotelPage.toLocaleLowerCase()
       }
     }
     fetchData()
-  })
+  },[hotelNameLowercase])
 
+  const navArr=[
+    {
+      'text':'Overview',
+      nav:'overview'
+    },{
+      'text':'Order Online',
+      nav:'order'
+    },{
+      'text':'Review',
+      nav:'review'
+    },{
+      'text':'Photos',
+      nav:'photos'
+    },{
+      'text':'Menu',
+      nav:'menu'
+    },
+  ]
+
+  const buttonArr=[
+    {
+      'text':"Direction",
+      'mui':Directions
+    },
+    {
+      'text':"Bookmark",
+      'mui':BookmarkAdd
+    },{
+      'text':"Share",
+      'mui':Share
+    },
+  ]
 
   return (
     <div id="hotelpage-container">
@@ -65,7 +102,7 @@ let hotelNameLowercase = hotelPage.toLocaleLowerCase()
         
         >
           <CircularProgress size={100} /> 
-          </div> : err ? <Alert variant="filled" severity="error" sx={{
+          </div> : iserr ? <Alert variant="filled" severity="error" sx={{
             height:'40px' , width:'auto'
         }} >{err}</Alert> : <>
       <div id="hotel-contents">
@@ -113,119 +150,58 @@ let hotelNameLowercase = hotelPage.toLocaleLowerCase()
             <p id="hotel-subtexts-header2"> {selectCity} </p>
             
           </div>
-         <div id="direction-share-button">
-          <motion.div 
-          whileHover={{
-            cursor:'pointer',
-            backgroundColor:'rgb(227, 219, 219)'
-          }}
-          transition={{
-            ease:"easeInOut"
-          }}
-          >
-             
-              <Directions
-                sx={{
-                  fontSize:{
-                    xs:'12px',sm:'14px',md:'16px',lg:'16px'
-                  },
-                  margin:'auto 0'
-                }}
-              />
-              <span>  Direction
-            </span>
-          </motion.div>
-          <motion.div 
-          whileHover={{
-            cursor:'pointer',
-            backgroundColor:'rgb(227, 219, 219)'
-          }}
-          transition={{
-            ease:"easeInOut"
-          }}      
           
-          >
-            
-            
-              
-              <BookmarkAdd
-                sx={{
-                  fontSize:{
-                    xs:'12px',sm:'14px',md:'16px',lg:'16px'
-                  },
-                  margin:'auto 0'
-                }}
-              />
-            <span>  Bookmark
-            </span>
-          </motion.div>
-
-          <motion.div
-          whileHover={{
-            cursor:'pointer',
-            backgroundColor:'rgb(227, 219, 219)'
-          }}
-          transition={{
-            ease:"easeInOut"
-          }}
+         <div id="direction-share-button"> 
+          {
+            buttonArr.map((item,ind)=>{
+              return      <motion.div key={ind}
+              whileHover={{
+                cursor:'pointer',
+                backgroundColor:'rgb(227, 219, 219)'
+              }}
+              transition={{
+                ease:"easeInOut"
+              }}
+              >
+                  <item.mui
+                    sx={{
+                      fontSize:{
+                        xs:'12px',sm:'14px',md:'16px',lg:'16px'
+                      },
+                      margin:'auto 0'
+                    }}
+                  />
+                  <span>  {item.text}
+                </span>
+              </motion.div>
           
-          >
-            
-              
-              <Share
-                sx={{
-                  fontSize:{
-                    xs:'12px',sm:'14px',md:'16px',lg:'16px'
-                  },
-                  margin:'auto 0'
-                }}
-              />
-            
-            <span>  Share
-            </span>
-          </motion.div>
+            })
+          }
          </div>
           <div id="about-header-div">
-            <p
-              onClick={() => setActiveOverview("overview")}
-              className={isActiveOverview === "overview" ? "active-about" : " "}
-            >
-              Overview
-            </p>
-            <p
-              onClick={() => setActiveOverview("order")}
-              className={isActiveOverview === "order" ? "active-about" : " "}
-            >
-              Order Online
-            </p>
-            <p
-              onClick={() => setActiveOverview("review")}
-              className={isActiveOverview === "review" ? "active-about" : " "}
-            >
-              Reviews
-            </p>
-            <p
-              onClick={() => setActiveOverview("photos")}
-              className={isActiveOverview === "photos" ? "active-about" : " "}
-            >
-              Photos
-            </p>
-            <p
-              onClick={() => setActiveOverview("menu")}
-              className={isActiveOverview === "menu" ? "active-about" : " "}
-            >
-              Menu
-            </p>
+            {
+              navArr.map((item,ind)=>{
+                return <p key={ind}
+                onClick={() => setActiveOverview(item.nav)}
+                className={isActiveOverview === item.nav ? "active-about" : " "}
+              >
+                {item.text}
+              </p>
+              })
+            }
           </div>
           
         
           <div id="hrLine"></div>
           </div>
+          <Suspense fallback={<CircularProgress />} >
           {isActiveOverview === "overview" ? (
-           <OverviewSection hotelName={ hotelNameLowercase } />
-          ) : (
-            <OrderOnline hotelName={hotelPage} />
-          )}
+           <OverviewSectionComponent hotelName={ hotelNameLowercase } />
+          ) : isActiveOverview === 'order' ? (
+            <OrderOnlineComponent hotelName={hotelPage} />
+          ) : null
+        } 
+        </Suspense>
 
       
         </div>
@@ -235,3 +211,5 @@ let hotelNameLowercase = hotelPage.toLocaleLowerCase()
     
   );
 }
+
+export default HotelPage

@@ -15,6 +15,7 @@ export const AuthContextProvider = ({children})=>{
                 const res =await axios.get(`${process.env.REACT_APP_URL}/user/me`,{
                     withCredentials:true
                 } );
+                console.log("use effect in app.jsx and in ")
                 if(!res || !res.data ){
                     throw new Error("Response was not ok");
                 }
@@ -28,6 +29,7 @@ export const AuthContextProvider = ({children})=>{
 
             }
             catch(err){
+                console.log(err)
                 setisLoggedIn(false);
             }
         }

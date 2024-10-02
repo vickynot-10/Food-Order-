@@ -75,7 +75,6 @@ export function Header(){
     const [isSignForm,setSignForm]=useState(false)
     const [isVisible,setvisible]=useState(false)
     const [logouterr,setlogouterr]=useState("")
-    const [successalert,setSucessalert]=useState(false);
     const [searchFood,setSearchFood]=useState([]);
     const [searchItem,setSearchItem]=useState('')
     const [searchHotel,setSearchHotel]=useState([]);
@@ -99,13 +98,6 @@ export function Header(){
     },[])
 
     
-
-    function timerAlert(){
-        setSucessalert(true);
-        setTimeout(()=>{
-            setSucessalert(false)
-        },5000)
-    }
     function redirectFoodOrder(str){
         let foodname = str.toLowerCase();
         setBlur(true)
@@ -181,7 +173,6 @@ export function Header(){
             }
             if( res.data === "OK"){
                 setSecondForm(true);
-                timerAlert();
                 setAlert(false)
             }
         }
@@ -232,8 +223,6 @@ export function Header(){
                 setUserid(res.data.data._id);
                 setUserRealname(res.data.user_name);
                 setPhoneNum(res.data.phone_num);
-                timerAlert();
-                setAlert(false)
                 setSignForm(false)
             }
         }
@@ -320,7 +309,6 @@ export function Header(){
                 setuserName(res.data.data.name)
                 setUserid(res.data.data._id);
                 setopen(false)
-                timerAlert();
             }
             setloginForm({
                 nameLogin:'',
@@ -488,10 +476,7 @@ export function Header(){
                                 color:'white'
                             }} />
                         </IconButton>
-                    </Alert> : successalert ?
-                    <Alert variant="filled" severity="success">
-                    Welcome
-                  </Alert> : null
+                    </Alert>  : null
                         }
                             <input type='submit' style={{
                                  width:'200px',height:'50px',backgroundColor:'#EF4F5F',

@@ -12,8 +12,11 @@ import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
 import { IconButton } from "@mui/material";
 import { useNav } from "../../Contexts/context";
 import Button from "@mui/material/Button";
+
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
-export function Orders(){
+
+ function Orders(){
     const {setActive} = useNav();
     useEffect(()=>{
         
@@ -124,7 +127,10 @@ export function Orders(){
                                    return val.item_details.map((data,ind) => {
                                        return <div id="order-hotel-section" key={ind} >
                                            <div id="order-hotel-img-div">
-                                               <img src={`${data.hotel_details.img}.jpg`} alt="hotel_img" />
+                                               <LazyLoadImage
+                                               effect="blur"
+                                               
+                                               src={`${data.hotel_details.img}.jpg`} alt="hotel_img" />
                                                <p style={{
                                                    textTransform: 'uppercase', fontWeight: 'bold'
                                                }}> {data.hotel_details.hotelName} , {data.item_name} </p>
@@ -175,3 +181,5 @@ export function Orders(){
     
     )
 }
+
+export default Orders

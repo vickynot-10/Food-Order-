@@ -8,7 +8,7 @@ import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import ArrowDown from '@mui/icons-material/ArrowDropDownOutlined'
 import moment from 'moment';
 import { useNav } from '../../../Contexts/context';
-export function BookTable(){
+ function BookTable(){
     const {setActive} = useNav();
     setActive('diningout')
     const time = moment();
@@ -23,8 +23,6 @@ export function BookTable(){
     
 
     useEffect(()=>{
-        
-
         function getTime(){
             const hour = time.hour();
             let newarray = [];
@@ -221,3 +219,4 @@ export function BookTable(){
         </div>
     )
 }
+export default BookTable

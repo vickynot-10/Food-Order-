@@ -5,6 +5,7 @@ import  KeyboardArrowRightRounded  from "@mui/icons-material/KeyboardArrowRightR
 import './Deliverypage.css';
 import { Outlet, useNavigate } from "react-router-dom";
 import { useNav } from "../../Contexts/context";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 export function DeliveryPage(){
     const {setActive} = useNav();
     useEffect(()=>{
@@ -43,7 +44,11 @@ export function DeliveryPage(){
                     {
                         Object.entries(FoodImgIcons).map(([key,val])=>{
                             return <div key={val} id="food-items">
-                                <img src={val} alt="img" onClick={()=>RedirectToDeliveryFoodItem( key ) } />
+                                
+                                <LazyLoadImage 
+                                effect="blur"
+                                 src={val} alt= {key.replace(/_/g,' ')}
+                                 onClick={()=>RedirectToDeliveryFoodItem( key ) } />
                                 <p> {key.replace(/_/g,' ')} </p>
                             </div>
                         })
@@ -62,7 +67,9 @@ export function DeliveryPage(){
                 {
                     Object.entries( FoodShops).map(([key1,val])=>{
                         return <div key={key1} id="brand-items">
-                            <img src={val} onClick={()=> RedirectToDeliveryHotel(key1) } alt="img"/>
+                            <LazyLoadImage 
+                            effect="blur"
+                            src={val} onClick={()=> RedirectToDeliveryHotel(key1) } alt="img"/>
                             <p>{key1}</p>
                       </div>
 

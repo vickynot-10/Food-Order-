@@ -23,9 +23,12 @@ import { useNavigate } from 'react-router-dom';
 import { useNav } from '../../Contexts/context';
 import { useOrder } from '../../Contexts/ordersContexts';
 import { useAuth } from '../../Contexts/authProvider';
-export function OrderForm(){
+
+function OrderForm(){
     const {setActive} = useNav();
-    setActive('delivery')
+    useEffect(()=>{
+        setActive('delivery');
+    },[])
     
     let {setOrderData} = useOrder()
     const [errordata,setErrordata]=useState("")
@@ -263,3 +266,5 @@ export function OrderForm(){
     </div>
     )
 }
+
+export default OrderForm

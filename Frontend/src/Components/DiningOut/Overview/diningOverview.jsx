@@ -4,7 +4,7 @@ import Check from "@mui/icons-material/Check";
 import  Alert  from "@mui/material/Alert";
 import  CircularProgress  from "@mui/material/CircularProgress";
 import './diningOverview.css';
-export function DiningOverview( {hoteldetails} ){
+ function DiningOverview( {hoteldetails} ){
     const [loading,setLoading] = useState(true)
     const [isError,setIsError]=useState(false);
     const [error, setError] = useState("");
@@ -104,3 +104,4 @@ export function DiningOverview( {hoteldetails} ){
 
 
 
+export default DiningOverview

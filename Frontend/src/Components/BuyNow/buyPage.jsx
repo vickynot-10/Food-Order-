@@ -12,9 +12,12 @@ import NavigateNext from '@mui/icons-material/NavigateNext';
 import { useNav } from "../../Contexts/context";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import DeleteIcon from '@mui/icons-material/Delete';
-export function BuyPage(){
+function BuyPage(){
     const {setActive} = useNav();
-    setActive('delivery')
+    useEffect(()=>{
+        setActive('delivery')
+    },[])
+    
     const navigation=useNavigate();
     let {cartItems,setCartItems,setTotalCost } = useCart();
     const [isopen,setopen]=useState(true)
@@ -220,3 +223,4 @@ export function BuyPage(){
         </div>
     )
 }
+export default BuyPage

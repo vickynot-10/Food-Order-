@@ -1,27 +1,71 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { Suspense,lazy } from "react";
 import Directions from "@mui/icons-material/DirectionsOutlined";
 import BookmarkAdd from "@mui/icons-material/BookmarkAddOutlined";
+
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 import Share from "@mui/icons-material/ShareOutlined";
 import  CircularProgress  from "@mui/material/CircularProgress";
 import { useParams } from "react-router-dom";
 import { useCity } from "../../../Contexts/citySelect";
-import { DiningOverview } from "../Overview/diningOverview";
 import axios from "axios";
 import './dininghotelpage.css'
 import  Alert  from "@mui/material/Alert";
-import { BookTable } from "../BookTable/BookTable";
 import { useNav } from "../../../Contexts/context";
-export function DiningHotelPage(){
+const DiningOverviewComponent = lazy(()=>import('../Overview/diningOverview'))
+const BookTableComponent = lazy(()=>import('../BookTable/BookTable'))
+
+
+
+ function DiningHotelPage(){
     const {setActive} = useNav();
-    setActive('diningout')
+    useEffect(()=>{
+        setActive('diningout')
+    },[])
     const [hoteldetails,setHotelDetails]= useState({})
     const {hotelname} = useParams();
     const { selectCity } = useCity();
     const [err,seterr]=useState("");
     const [isError,setisError]=useState(false);
     const [isLoading,setLoading]=useState(true);
+
     const [isDiningNavActive,setDiningNav]=useState('overview');
+    
+  const navArr=[
+    {
+      'text':'Overview',
+      nav:'overview'
+    },{
+      'text':'Book A Table',
+      nav:'bookTable'
+    },{
+      'text':'Review',
+      nav:'review'
+    },{
+      'text':'Photos',
+      nav:'photos'
+    },{
+      'text':'Menu',
+      nav:'menu'
+    },
+  ]
+
+    
+  const buttonArr=[
+    {
+      'text':"Direction",
+      'mui':Directions
+    },
+    {
+      'text':"Bookmark",
+      'mui':BookmarkAdd
+    },{
+      'text':"Share",
+      'mui':Share
+    },
+  ]
 
     useEffect(()=>{
         async function fetchData(){
@@ -45,7 +89,7 @@ export function DiningHotelPage(){
         }
     }
     fetchData()
-    },[])
+    },[hotelname])
     return(
         <div id="dining-hotelpage-container">
           {
@@ -66,7 +110,9 @@ export function DiningHotelPage(){
                     <div id="dining-hotel-imgs">
                     
                         <div id="dining-main-hotel-img">
-                            <motion.img src={`${val[1].img}.jpg`} alt="hotel-img"
+                            <motion.LazyLoadImage
+                            effect='blur'
+                             src={`${val[1].img}.jpg`} alt="hotel-img"
                                 initial={{
                                     opacity: 1
                                 }}
@@ -75,13 +121,15 @@ export function DiningHotelPage(){
                                 }} />
                         </div>
                         <div id="dining-secondary-hotel-img">
-                            <motion.img
+                            <motion.LazyLoadImage
+                            effect="blur"
                                 initial={{ opacity: 1 }}
                                 whileHover={{
                                     opacity: 0.8
                                 }}
                                 src={`${val[1].img}.jpg`} alt="hotel-img" />
-                            <motion.img
+                            <motion.LazyLoadImage
+                            effect='blur'
                                 initial={{ opacity: 1 }}
                                 whileHover={{
                                     opacity: 0.8, scale: 1
@@ -89,7 +137,8 @@ export function DiningHotelPage(){
                                 src={`${val[1].img}.jpg`} alt="hotel-img" />
                         </div>
                         <div id="dining-third-hotel-img">
-                            <motion.img
+                            <motion.LazyLoadImage
+                            effect='blur'
                                 initial={{ opacity: 1 }}
                                 whileHover={{
                                     opacity: 0.8
@@ -108,7 +157,10 @@ export function DiningHotelPage(){
 
                                         </div>
                                         <div id="dining-direction-share-button">
-                                            <motion.div
+
+                                            {
+                                                buttonArr.map((item,ind)=>{
+                                                return    <motion.div key={ind}
                                                 whileHover={{
                                                     cursor: 'pointer',
                                                     backgroundColor: 'rgb(227, 219, 219)'
@@ -118,105 +170,46 @@ export function DiningHotelPage(){
                                                 }}
                                             >
 
-                                                <Directions
+                                                <item.mui
                                                     sx={{
                                                         fontSize: {
                                                             xs: '12px', sm: '14px', md: '16px', lg: '16px'
                                                         },
                                                         margin: 'auto 0'
                                                     }} />
-                                                <span>  Direction
+                                                <span>  {item.text}
                                                 </span>
                                             </motion.div>
-                                            <motion.div
-                                                whileHover={{
-                                                    cursor: 'pointer',
-                                                    backgroundColor: 'rgb(227, 219, 219)'
-                                                }}
-                                                transition={{
-                                                    ease: "easeInOut"
-                                                }}
-
-                                            >
-
-                                                <BookmarkAdd
-                                                    sx={{
-                                                        fontSize: {
-                                                            xs: '12px', sm: '14px', md: '16px', lg: '16px'
-                                                        },
-                                                        margin: 'auto 0'
-                                                    }} />
-                                                <span>  Bookmark
-                                                </span>
-                                            </motion.div>
-
-                                            <motion.div
-                                                whileHover={{
-                                                    cursor: 'pointer',
-                                                    backgroundColor: 'rgb(227, 219, 219)'
-                                                }}
-                                                transition={{
-                                                    ease: "easeInOut"
-                                                }}
-
-                                            >
-
-
-                                                <Share
-                                                    sx={{
-                                                        fontSize: {
-                                                            xs: '12px', sm: '14px', md: '16px', lg: '16px'
-                                                        },
-                                                        margin: 'auto 0'
-                                                    }} />
-
-                                                <span>  Share
-                                                </span>
-                                            </motion.div>
+                                            
+                                                })
+                                            }
                                         </div>
                                         <div id="dining-about-header-div">
-                                            <p
-                                                onClick={() => setDiningNav("overview")}
-                                                className={isDiningNavActive === "overview" ? "dining-active-about" : " "}
-                                            >
-                                                Overview
-                                            </p>
-                                            <p
-                                                onClick={() => setDiningNav("bookTable")}
-                                                className={isDiningNavActive === "bookTable" ? "dining-active-about" : " "}
-                                            >
-                                                Book A Table
-                                            </p>
-                                            <p
-                                                onClick={() => setDiningNav("review")}
-                                                className={isDiningNavActive === "review" ? "dining-active-about" : " "}
-                                            >
-                                                Reviews
-                                            </p>
-                                            <p
-                                                onClick={() => setDiningNav("photos")}
-                                                className={isDiningNavActive === "photos" ? "dining-active-about" : " "}
-                                            >
-                                                Photos
-                                            </p>
-                                            <p
-                                                onClick={() => setDiningNav("menu")}
-                                                className={isDiningNavActive === "menu" ? "dining-active-about" : " "}
-                                            >
-                                                Menu
-                                            </p>
+
+                                            {
+                                                navArr.map((item,ind)=>{
+                                                    return  <p key={ind}
+                                                    onClick={() => setDiningNav(item.nav)}
+                                                    className={isDiningNavActive === item.nav ? "dining-active-about" : " "}
+                                                >
+                                                    {item.text}
+                                                </p>
+                                                })
+                                            }
                                         </div>
 
 
                                         <div id="dining-hrLine"></div>
                                     </div>
+                                    <Suspense fallback={<CircularProgress />} >
                                     {isDiningNavActive === "overview" ? (
-                                        <DiningOverview hoteldetails={hoteldetails} />
+                                        <DiningOverviewComponent hoteldetails={hoteldetails} />
                                     ) : 
                                         isDiningNavActive === "bookTable" ? (
-                                        <BookTable />    
+                                        <BookTableComponent />    
                                         ) : null
                                     }
+                                    </Suspense>
 
 
                                 </div>    
@@ -231,3 +224,4 @@ export function DiningHotelPage(){
         
       );
     }    
+    export default DiningHotelPage

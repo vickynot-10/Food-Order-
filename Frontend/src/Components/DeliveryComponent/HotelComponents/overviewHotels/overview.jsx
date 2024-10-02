@@ -5,7 +5,8 @@ import Check from "@mui/icons-material/Check";
 import  Alert  from "@mui/material/Alert";
 import  CircularProgress  from "@mui/material/CircularProgress";
 import { useNav } from "../../../../Contexts/context";
-export function OverviewSection( {hotelName} ) {
+
+function OverviewSection( {hotelName} ) {
   const {setActive} = useNav();
   setActive('delivery')
   const [hotelDetails,setHotelDetails]=useState({})
@@ -107,3 +108,5 @@ export function OverviewSection( {hotelName} ) {
     </div>
   );
 }
+
+export default OverviewSection

@@ -15,7 +15,9 @@ import CloseIcon from '@mui/icons-material/CloseOutlined';
 import Cart from '@mui/icons-material/ShoppingCartCheckoutOutlined';
 import { useCart } from '../../../Contexts/cartContext';
 import { useNav } from '../../../Contexts/context';
-export function FoodDeliversItems(){
+
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+function FoodDeliversItems(){
     const {setActive} = useNav();
     setActive('delivery')
     const [isopen,setopen]=useState(false)
@@ -161,7 +163,10 @@ export function FoodDeliversItems(){
                              }} /> </span>
                          )
                          }
-                         <img src={
+                         <LazyLoadImage
+                         effect='blur'
+
+                         src={
                             key.Foodname==="ice_cream" ? `${key.img}/icecream${ind+1}.jpg`
                             :
                             `${key.img}/${key.Foodname}${ind+1}.jpg`} alt="img" />
@@ -204,3 +209,6 @@ export function FoodDeliversItems(){
     </>
     )
 }
+
+
+export default FoodDeliversItems

@@ -9,11 +9,12 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useNav } from '../../Contexts/context';
 import axios from 'axios';
-export function DiningOut(){
+ 
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+function DiningOut(){
     const {selectCity} = useCity();
     const {setActive} = useNav();
     useEffect(()=>{
-        
     setActive('diningout')
     },[])
     const navigate = useNavigate();
@@ -29,7 +30,6 @@ export function DiningOut(){
                     throw new Error("Response was not ok");
                 }
                 if(res.statusText==='OK' ){
-                    setIsError(false)
                     setDiningHoteldetails(res.data)
                 }
             }
@@ -145,7 +145,9 @@ export function DiningOut(){
                         onClick={()=>RedirectToHotel(key.hotelName)}
                         
                         >
-                          <img src={`${key.img}.jpg`} alt="img" /> 
+                          <LazyLoadImage
+                          effect='blur'
+                          src={`${key.img}.jpg`} alt="img" /> 
                          
                         </div>
                         <div id="dining-hotel-subdiv"> 
@@ -182,3 +184,5 @@ export function DiningOut(){
         </div>
     )
 }
+
+export default DiningOut

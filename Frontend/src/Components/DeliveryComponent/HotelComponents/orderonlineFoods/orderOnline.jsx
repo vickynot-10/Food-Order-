@@ -7,7 +7,8 @@ import  Alert  from "@mui/material/Alert";
 import  CircularProgress  from '@mui/material/CircularProgress';
 import { useNav } from "../../../../Contexts/context";
 
-export function OrderOnline({ hotelName }) {
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+function OrderOnline({ hotelName }) {
   const {setActive} = useNav();
   setActive('delivery')
   
@@ -101,7 +102,8 @@ export function OrderOnline({ hotelName }) {
               return (
                 <div id="food-img-contents">
                   <div id="food-dish-img-icon">
-                    <img
+                    <LazyLoadImage
+                    effect="blur"
                       src={
                         key.Foodname === "ice_cream"
                           ? `${key.img}/icecream${ind + 1}.jpg`
@@ -128,3 +130,4 @@ export function OrderOnline({ hotelName }) {
     </div>
   );
 }
+export default OrderOnline
