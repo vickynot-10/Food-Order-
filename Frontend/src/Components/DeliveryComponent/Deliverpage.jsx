@@ -42,8 +42,15 @@ export function DeliveryPage(){
             <div id="foods-order" ref={containerRef} >
                 <div  id="foods-order-div">
                     {
-                        Object.entries(FoodImgIcons).map(([key,val])=>{
-                            return <div key={val} id="food-items">
+                        Object.entries(FoodImgIcons).map(([key,val],ind)=>{
+                            return <div key={ind} id="food-items">
+                                {
+                                    ind===0 && (
+                                        <link rel="preload" href={val} as="image" />
+                                    )
+                                        
+                                    
+                                }
                                 
                                 <LazyLoadImage 
                                 effect="blur"
