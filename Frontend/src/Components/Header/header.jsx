@@ -29,7 +29,7 @@ import Avatar from '@mui/material/Avatar';
 import { useUserData } from '../../Contexts/userDetails';
 import  Star  from "@mui/icons-material/Star";
 import Snackbar from '@mui/material/Snackbar';
-
+import Cookie from 'js-cookie'
 
 import { useAuth } from '../../Contexts/authProvider';
 
@@ -134,7 +134,9 @@ export function Header(){
             }
             if(res.data.isLogout === true){
                 setisLoggedIn(false);
-                window.location.href='/delivery'
+                Cookie.remove('token');
+                navigate('/delivery')
+
                 
             }
         }
