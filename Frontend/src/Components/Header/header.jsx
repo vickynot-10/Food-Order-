@@ -82,6 +82,8 @@ export function Header(){
     const [isErrorSearch,setIsSearchError]=useState(false);
     const [isLoading,setLoading]=useState(true)
     const [loadingInput,setInputLoading]=useState(false);
+    
+    const [loginLoadingInput,setLoginLoadinginput]=useState(false);
     const[isBlur,setBlur]=useState(true);
 
     useEffect(()=>{
@@ -291,6 +293,7 @@ export function Header(){
     }
     async function LoginFormSubmit(e) {
         e.preventDefault();
+        setLoginLoadinginput(true)
 
         
         try{
@@ -480,11 +483,16 @@ export function Header(){
                         </IconButton>
                     </Alert>  : null
                         }
-                            <input type='submit' style={{
+                            <button type='submit' style={{
                                  width:'200px',height:'50px',backgroundColor:'#EF4F5F',
                                  border:'unset',color:'white',padding:'8px',borderRadius:'10px',
                                  cursor:'pointer'
-                            }} />
+                            }}>
+                                {
+                                    loginLoadingInput ? <CircularProgress size={25} /> : Submit
+                                }
+                                
+                                 </button>
                             </div>
                         </form>
                         <div style={{
