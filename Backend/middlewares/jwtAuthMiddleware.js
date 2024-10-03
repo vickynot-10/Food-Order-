@@ -17,7 +17,11 @@ export const verifyJWTtoken = (req, res, next) => {
     try {
         jwt.verify(token, process.env.SECRET_KEY, async(err, decode) => {
             if (err) {
-                return err
+                return res.status(400).json({
+                    message: "Error at token",
+                    isLoggedIn: false,
+                    userdata: null
+                })
             }
             let user = await UsersModel.findById(decode.userID);
             if (!user) {

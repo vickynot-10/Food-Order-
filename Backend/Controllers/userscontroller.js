@@ -4,7 +4,6 @@ import cors from 'cors';
 import { configDotenv } from "dotenv";
 import bcrypt from 'bcrypt'
 import cookieParser from 'cookie-parser';
-import Cookies from 'js-cookie'
 
 const app = express()
 configDotenv()
@@ -106,11 +105,11 @@ export const userLogin = async(req, res) => {
             return res.status(400).send("Invalid Password")
         }
         if (passwordMatch) {
-            let token = generateJWTtoken(userVar._id);
-            
+            let token = generateJWTtoken(userVar._id);       
             res.cookie('token', token, {
                 httpOnly:true,
                 maxAge: 2 * 60 * 60 * 1000,
+                sameSite:'none',
                 secure: true
             })
             return res.status(200).json({
