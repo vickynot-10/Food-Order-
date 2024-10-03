@@ -133,8 +133,8 @@ export function Header(){
                 throw new Error("Error while logging out")
             }
             if(res.data.isLogout === true){
-                setisLoggedIn(false)
-                navigate('/delivery')
+                setisLoggedIn(false);
+                window.location.href='/delivery'
                 
             }
         }
