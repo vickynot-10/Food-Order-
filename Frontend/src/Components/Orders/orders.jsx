@@ -42,6 +42,7 @@ import FilterAltIcon from '@mui/icons-material/FilterAlt';
             if(!res || !res.data){
                 throw new Error('Response was not ok');
             }
+            console.log(res)
             if(res.data.isLoggedInobj === true){
                 setisLoggedIn(true);
                 setOrder(res.data.result)

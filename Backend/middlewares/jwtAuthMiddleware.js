@@ -6,6 +6,7 @@ export const verifyJWTtoken = (req, res, next) => {
 
     let token = req.cookies.token;
 
+
     if (!token) {
         return res.status(400).json({
             message: "Please Login , Have token",
@@ -13,6 +14,7 @@ export const verifyJWTtoken = (req, res, next) => {
             userdata: null
         })
     }
+    console.log(token)
     try {
         jwt.verify(token, process.env.SECRET_KEY, async(err, decode) => {
             if (err) {

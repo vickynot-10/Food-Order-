@@ -29,9 +29,7 @@ function DiningOut(){
                 if(!res || !res.data ){
                     throw new Error("Response was not ok");
                 }
-                if(res.statusText==='OK' ){
                     setDiningHoteldetails(res.data)
-                }
             }
             catch(e){
                 let errMsg = e.message || "An error occured";
