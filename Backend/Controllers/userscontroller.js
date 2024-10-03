@@ -108,11 +108,9 @@ export const userLogin = async(req, res) => {
         if (passwordMatch) {
             let token = generateJWTtoken(userVar._id);
             
-            console.log("cookie set");
             res.cookie('token', token, {
                 httpOnly:true,
                 maxAge: 2 * 60 * 60 * 1000,
-                sameSite: 'lax',
                 secure: true
             })
             return res.status(200).json({

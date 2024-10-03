@@ -14,7 +14,6 @@ export const verifyJWTtoken = (req, res, next) => {
             userdata: null
         })
     }
-    console.log(token)
     try {
         jwt.verify(token, process.env.SECRET_KEY, async(err, decode) => {
             if (err) {
