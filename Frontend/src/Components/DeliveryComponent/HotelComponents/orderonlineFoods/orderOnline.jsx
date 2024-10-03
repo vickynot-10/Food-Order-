@@ -1,5 +1,5 @@
 import "./orderOnline.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState,memo } from "react";
 import axios from "axios";
 import SearchOutlined from "@mui/icons-material/SearchOutlined";
 import CloseOutlined from "@mui/icons-material/CloseOutlined";
@@ -130,4 +130,4 @@ function OrderOnline({ hotelName }) {
     </div>
   );
 }
-export default OrderOnline
+export default memo(OrderOnline)

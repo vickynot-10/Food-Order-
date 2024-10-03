@@ -1,10 +1,12 @@
-import { useState,useEffect } from "react";
+import { useState,useEffect,memo } from "react";
 import "./overview.css";
 import axios from "axios";
 import Check from "@mui/icons-material/Check";
 import  Alert  from "@mui/material/Alert";
 import  CircularProgress  from "@mui/material/CircularProgress";
 import { useNav } from "../../../../Contexts/context";
+
+
 
 function OverviewSection( {hotelName} ) {
   const {setActive} = useNav();
@@ -109,4 +111,4 @@ function OverviewSection( {hotelName} ) {
   );
 }
 
-export default OverviewSection
+export default memo( OverviewSection)

@@ -37,7 +37,6 @@ let hotelNameLowercase = hotelPage.toLocaleLowerCase()
           throw new Error('Network response was not ok')
        }
        if(res.status===200){
-        
       setHotelDetails(res.data);
        }
       }

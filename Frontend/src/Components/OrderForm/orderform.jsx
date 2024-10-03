@@ -5,7 +5,6 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import CallIcon from '@mui/icons-material/Call';
 import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
-import { useUserData } from '../../Contexts/userDetails';
 import { useCart } from '../../Contexts/cartContext';
 import Snackbar from '@mui/material/Snackbar';
 
@@ -13,7 +12,7 @@ import IconButton from '@mui/material/IconButton';
 
 import CloseIcon from '@mui/icons-material/Close'
 import SnackbarContent from '@mui/material/SnackbarContent';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect,  useState } from 'react';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 import Modal from '@mui/material/Modal';
@@ -79,7 +78,6 @@ function OrderForm(){
         if(!res || !res.data ){
             throw new Error('Response is not ok')
         }
-        setisError(false)
         setOrderData(res.data)
         setModalOpen(true)
         setopen(false)

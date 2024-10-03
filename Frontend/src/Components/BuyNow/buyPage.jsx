@@ -25,6 +25,7 @@ function BuyPage(){
         setopen(false);
         setCartItems([]);
     }
+
     function IncrementCost(key){
         setCartItems(
             prev =>{

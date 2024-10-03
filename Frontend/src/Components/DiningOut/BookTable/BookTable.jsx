@@ -1,6 +1,6 @@
 import './BookTable.css';
 import Select from '@mui/material/Select';
-import { useEffect, useState } from 'react';
+import { useEffect, useState,memo } from 'react';
 import MenuItem from '@mui/material/MenuItem';
 import EventAvailableOutlinedIcon from '@mui/icons-material/EventAvailableOutlined';
 import PeopleOutlineOutlinedIcon from '@mui/icons-material/PeopleOutlineOutlined';
@@ -219,4 +219,4 @@ import { useNav } from '../../../Contexts/context';
         </div>
     )
 }
-export default BookTable
+export default memo(BookTable)

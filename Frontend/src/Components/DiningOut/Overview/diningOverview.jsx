@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,memo } from "react";
 import { useNav } from "../../../Contexts/context";
 import Check from "@mui/icons-material/Check";
 import  Alert  from "@mui/material/Alert";
@@ -104,4 +104,4 @@ import './diningOverview.css';
 
 
 
-export default DiningOverview
+export default memo(DiningOverview)
