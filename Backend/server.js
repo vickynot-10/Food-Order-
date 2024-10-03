@@ -7,15 +7,21 @@ import routes from './Routes/routes.js';
 import path,{dirname} from 'path';
 
 getDatabase()
+
 import { configDotenv } from 'dotenv';
 import { fileURLToPath } from 'url';
+
 configDotenv()
+
 app.use(cors({
     origin: true,
     credentials: true
 }))
+
+
 const __filename=fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename)
+
 if(process.env.ENVIRONMENT=='production'){
     app.use(express.static(path.join(__dirname,'..','Frontend','build')));
     app.get('*',(req,res)=>{
