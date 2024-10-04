@@ -111,9 +111,9 @@ export function Footer(){
                     <div>
                         <div id='ios-icon-div'>
                             <div id='ios-icon'>
-                                <span>
+                                
                                 <AppleIcon  />
-                                </span>
+                                
                             </div>
                             <div id='ios-download-text' >
                                 <p style={{fontSize:'8px'}}>Download on the </p>
@@ -122,9 +122,9 @@ export function Footer(){
                         </div>
                         <div id='android-icon-div'>
                             <div>
-                                <span>
+                                
                                 <PlayArrowIcon />
-                                </span>
+                                
                             </div>
                             <div id='android-download-text' >
                                 <p style={{fontSize:'8px'}} >Get it on </p>
