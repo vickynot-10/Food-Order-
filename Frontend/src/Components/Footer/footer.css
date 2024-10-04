@@ -91,10 +91,6 @@
     margin-top: 10px;
 }
 
-#ios-icon-div span,
-#android-icon-div span {
-    font-size: clamp(8px, 1vw, 18px);
-}
 
 #ios-download-text,
 #android-download-text {

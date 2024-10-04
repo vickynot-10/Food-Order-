@@ -112,7 +112,15 @@ export function Footer(){
                         <div id='ios-icon-div'>
                             <div id='ios-icon'>
                                 
-                                <AppleIcon  />
+                                <AppleIcon  
+                                    sx={{
+                                        fontSize:{
+                                            xs:'8px',sm:'10px',md:'18px',lg:'18px'
+                                        }
+                                    }}
+                                
+                                
+                                />
                                 
                             </div>
                             <div id='ios-download-text' >
@@ -123,7 +131,13 @@ export function Footer(){
                         <div id='android-icon-div'>
                             <div>
                                 
-                                <PlayArrowIcon />
+                                <PlayArrowIcon
+                                sx={{
+                                    fontSize:{
+                                        xs:'8px',sm:'10px',md:'18px',lg:'18px'
+                                    }
+                                }}
+                                />
                                 
                             </div>
                             <div id='android-download-text' >
