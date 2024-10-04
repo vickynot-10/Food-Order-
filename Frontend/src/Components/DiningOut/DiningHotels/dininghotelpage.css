@@ -23,7 +23,6 @@
 
 #dining-hotel-contents {
     width: 100%;
-    height: 60vh;
     display: flex;
     flex-direction: column;
 }
@@ -44,20 +43,21 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+    border-radius: 10px;
 }
 
 #dining-secondary-hotel-img {
     display: flex;
-    height: 100%;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
 
 #dining-secondary-hotel-img img {
-    height: 50%;
+    height: 100px;
     width: 180px;
-    margin: 2px 10px;
+    margin: 0 10px;
+    border-radius: 10px;
 }
 
 #dining-third-hotel-img {
@@ -67,6 +67,7 @@
 #dining-third-hotel-img img {
     height: 100%;
     object-fit: cover;
+    border-radius: 10px;
     object-position: center;
     max-width: 100%;
 }
@@ -154,21 +155,14 @@
         width: 100%;
     }
     #dining-main-hotel-img img {
-        height: 100%;
-    }
-    #dining-secondary-hotel-img {
-        height: 60%;
-        display: flex;
-    }
-    #dining-secondary-hotel-img img {
-        height: 50%;
+        height: 200px;
     }
     #dining-third-hotel-img {
         display: flex;
-        height: 60%;
+
     }
     #dining-third-hotel-img img {
-        max-width: unset;
+        max-width: 200px;
     }
     #dining-about-header-div {
         width: 100%;
@@ -195,23 +189,19 @@
         width: 100%;
     }
     #dining-main-hotel-img img {
-        width: 100%;
-        height: 100%;
-    }
-    #dining-secondary-hotel-img {
-        height: 60%;
-        display: flex;
-    }
-    #dining-secondary-hotel-img img {
-        height: 50%;
+        height: 200px;
     }
     #dining-third-hotel-img {
         display: flex;
-        height: 60%;
+
     }
     #dining-third-hotel-img img {
-        max-width: unset;
+        max-width: 200px;
     }
+    #dining-about-header-div {
+        width: 100%;
+    }
+    
     #dining-about-header-div {
         width: 100%;
     }
@@ -224,7 +214,7 @@
     }
     #dining-hotel-imgs {
         display: grid;
-        grid-template-columns: repeat(auto-fill, 100%);
+        grid-template-columns: repeat(auto-fill, minmax(60%,70%));
         grid-template-rows: 1fr;
         grid-auto-flow: column;
         overflow-y: hidden;
@@ -237,21 +227,20 @@
         width: 100%;
     }
     #dining-main-hotel-img img {
+        height: 200px;
+        max-width: unset;
         width: 100%;
-    }
-    #dining-secondary-hotel-img {
-        height: 60%;
-        display: flex;
-    }
-    #dining-secondary-hotel-img img {
-        height: 50%;
     }
     #dining-third-hotel-img {
         display: flex;
-        height: 60%;
+
     }
     #dining-third-hotel-img img {
         max-width: unset;
+        width: 300px;
+    }
+    #dining-about-header-div {
+        width: 100%;
     }
     #dining-about-header-div {
         width: 100%;

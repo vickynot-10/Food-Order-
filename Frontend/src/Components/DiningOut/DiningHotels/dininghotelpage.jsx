@@ -74,7 +74,6 @@ const BookTableComponent = lazy(()=>import('../BookTable/BookTable'))
             if(!res || !res.data ){
                 throw new Error("Response was not ok");
             }
-            console.log(res[1])
             setHotelDetails(res.data)
         }
         catch(e){
@@ -111,39 +110,22 @@ const BookTableComponent = lazy(()=>import('../BookTable/BookTable'))
                     <div id="dining-hotel-imgs">
                     
                         <div id="dining-main-hotel-img">
-                            <motion.LazyLoadImage
+                            <LazyLoadImage
                             effect='blur'
                              src={`${val[1].img}.jpg`} alt={val[1].hotelName}
-                                initial={{
-                                    opacity: 1
-                                }}
-                                whileHover={{
-                                    opacity: 0.8
-                                }} />
+                             />
                         </div>
                         <div id="dining-secondary-hotel-img">
-                            <motion.LazyLoadImage
+                            <LazyLoadImage
                             effect="blur"
-                                initial={{ opacity: 1 }}
-                                whileHover={{
-                                    opacity: 0.8
-                                }}
                                 src={`${val[1].img}.jpg`} alt={val[1].hotelName} />
-                            <motion.LazyLoadImage
+                            <LazyLoadImage
                             effect='blur'
-                                initial={{ opacity: 1 }}
-                                whileHover={{
-                                    opacity: 0.8, scale: 1
-                                }}
                                 src={`${val[1].img}.jpg`} alt="hotel-img" />
                         </div>
                         <div id="dining-third-hotel-img">
-                            <motion.LazyLoadImage
+                            <LazyLoadImage
                             effect='blur'
-                                initial={{ opacity: 1 }}
-                                whileHover={{
-                                    opacity: 0.8
-                                }}
                                 src={`${val[1].img}.jpg`} alt="hotel-img" />
                         </div>
                     </div>
