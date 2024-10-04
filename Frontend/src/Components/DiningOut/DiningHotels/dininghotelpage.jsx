@@ -89,7 +89,7 @@ const BookTableComponent = lazy(()=>import('../BookTable/BookTable'))
         }
     }
     fetchData()
-    },[hotelname])
+    },[])
     return(
         <div id="dining-hotelpage-container">
           {
