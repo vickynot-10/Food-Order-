@@ -74,6 +74,7 @@ const BookTableComponent = lazy(()=>import('../BookTable/BookTable'))
             if(!res || !res.data ){
                 throw new Error("Response was not ok");
             }
+            console.log(res[1])
             setHotelDetails(res.data)
         }
         catch(e){
@@ -112,7 +113,7 @@ const BookTableComponent = lazy(()=>import('../BookTable/BookTable'))
                         <div id="dining-main-hotel-img">
                             <motion.LazyLoadImage
                             effect='blur'
-                             src={`${val[1].img}.jpg`} alt="hotel-img"
+                             src={`${val[1].img}.jpg`} alt={val[1].hotelName}
                                 initial={{
                                     opacity: 1
                                 }}
@@ -127,7 +128,7 @@ const BookTableComponent = lazy(()=>import('../BookTable/BookTable'))
                                 whileHover={{
                                     opacity: 0.8
                                 }}
-                                src={`${val[1].img}.jpg`} alt="hotel-img" />
+                                src={`${val[1].img}.jpg`} alt={val[1].hotelName} />
                             <motion.LazyLoadImage
                             effect='blur'
                                 initial={{ opacity: 1 }}
