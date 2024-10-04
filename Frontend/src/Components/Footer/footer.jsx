@@ -115,7 +115,7 @@ export function Footer(){
                                 <AppleIcon  
                                     sx={{
                                         fontSize:{
-                                            xs:'8px',sm:'10px',md:'18px',lg:'18px'
+                                            xs:'12px',sm:'14px',md:'18px',lg:'18px'
                                         }
                                     }}
                                 
@@ -134,7 +134,7 @@ export function Footer(){
                                 <PlayArrowIcon
                                 sx={{
                                     fontSize:{
-                                        xs:'8px',sm:'10px',md:'18px',lg:'18px'
+                                        xs:'12px',sm:'14px',md:'18px',lg:'18px'
                                     }
                                 }}
                                 />

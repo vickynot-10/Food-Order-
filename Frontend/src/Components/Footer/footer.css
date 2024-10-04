@@ -116,9 +116,7 @@
 }
 
 @media screen and (min-width:320px) and (max-width:480px) {
-    #footer-container {
-        min-height: 50vh;
-    }
+    
     #ios-icon-div,
     #android-icon-div {
         height: 30px;
@@ -137,9 +135,6 @@
 }
 
 @media screen and (min-width:481px) and (max-width:640px) {
-    #footer-container {
-        min-height: 60vh;
-    }
     #ios-icon-div,
     #android-icon-div {
         height: 35px;
@@ -151,11 +146,5 @@
         width: 75px;
         height: 25px;
         font-size: 12px;
-    }
-}
-
-@media screen and (min-width:641px) and (max-width:960px) {
-    #footer-container {
-        min-height: 70vh;
     }
 }
