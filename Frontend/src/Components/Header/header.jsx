@@ -129,7 +129,10 @@ export function Header(){
     }
     async function Logout(){
         try{
-            const res=await axios.post(`${process.env.REACT_APP_URL}/logout`);
+            const res=await axios.post(`${process.env.REACT_APP_URL}/logout`,{
+                withCredentials:true
+            }
+            );
             if(!res){
                 throw new Error("Error while logging out")
             }
