@@ -209,13 +209,13 @@ function OrderForm(){
                             <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
                                 <PersonOutlineIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
                                 <TextField onChange={savingDetails} label="Receiver's Name" name='name'
-                                    value={userRealNameAuth || userdata.name}
+                                    value={ userdata.name || userRealNameAuth }
                                     variant="standard" />
                             </Box>
                             <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
                                 <CallIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
                                 <TextField label="Receiver's Mobile Number" name='phone' onChange={savingDetails}
-                                    value={userPhoneAuth || userdata.phone}
+                                    value={ userdata.phone || userPhoneAuth  }
                                     variant="standard" />
                             </Box>
 
