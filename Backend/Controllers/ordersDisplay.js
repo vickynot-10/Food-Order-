@@ -1,9 +1,6 @@
 import { OrderModel } from "../Models/OrderDetails.js";
 
 
-
-
-
 export const OrderDisplay = async(req, res) => {
     if (!req.user) {
         return res.status(400).json({
@@ -17,7 +14,7 @@ export const OrderDisplay = async(req, res) => {
         const orders = await OrderModel.find({
             _id: ordersDetails
         });
-        if (!orders) {
+        if (!orders || orders.length <= 0 ) {
             return res.status(200).json({
                 "isLoggedInobj": true,
                 "firstOrder": true
