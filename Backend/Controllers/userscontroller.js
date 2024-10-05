@@ -76,7 +76,6 @@ export const UserRegisterAddress = async(req, res) => {
 
 
 export const userLogin = async(req, res) => {
-    let userVar;
     const { nameLogin, passwordLogin } = req.body;
     if (!nameLogin) {
         return res.status(400).send("Please Enter Name or Mail");
@@ -84,19 +83,15 @@ export const userLogin = async(req, res) => {
     if (!passwordLogin) {
         return res.status(400).send("Enter your password");
     }
-
-    const emailExp = /^[a-zA-Z][^\s@][a-zA-Z0-9_.-]+@[a-zA-Z0-9.-]+.[a-zA-Z]+$/
-    const userExp = emailExp.test(nameLogin);
     try {
-        if (userExp) {
-            userVar = await UsersModel.findOne({
-                email: nameLogin
+    
+        let  userVar = await UsersModel.findOne({
+                $or:[
+                    { name: nameLogin },
+                    { email: nameLogin }
+                ]      
             })
-        } else {
-            userVar = await UsersModel.findOne({
-                name: nameLogin
-            })
-        }
+        
         if (!userVar) {
             return res.status(400).send("Invalid username or mail");
         }
