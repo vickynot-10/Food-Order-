@@ -129,7 +129,9 @@ export const userLogin = async(req, res) => {
 export const Logout = async(req, res) => {
     try {
 
-        res.clearCookie("token");
+        res.clearCookie("token",{
+            path:'/'
+        });
 
         res.status(200).json({
             isLogout: true
